@@ -18,8 +18,9 @@ worldrec = scratch3.get_var(project_id, "世界記録")
 @events.event
 def on_set(event):
     print(f"{event.user}がタイム{event.var}を記録!")
-    if event.var < worldrec:
+    if int(event.var) < worldrec:
         print("世界記録更新!")
+        worldrec = int(event.var)
         conn.set_var("世界記録", worldrec)
 
 
