@@ -11,14 +11,13 @@ session = scratch3.login(os.environ["user"], os.environ["pass"])
 conn = session.connect_cloud(project_id)
 events = scratch3.CloudEvents(project_id)
 
-worldrec = scratch3.get_var(project_id, "世界記録")
-
 
 # クラウド変数が変更されたときの処理
 @events.event
 def on_set(event):
     if event.var != "server":
         return
+    worldrec = scratch3.get_var(project_id, "世界記録")
 
     print(f"{event.user}がタイム{event.value}を記録!")
     if int(event.value) < worldrec:
