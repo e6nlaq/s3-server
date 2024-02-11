@@ -17,6 +17,9 @@ worldrec = scratch3.get_var(project_id, "世界記録")
 # クラウド変数が変更されたときの処理
 @events.event
 def on_set(event):
+    if event.var != "server":
+        return
+
     print(f"{event.user}がタイム{event.value}を記録!")
     if int(event.value) < worldrec:
         print("世界記録更新!")
