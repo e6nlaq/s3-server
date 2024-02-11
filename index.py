@@ -17,7 +17,7 @@ events = scratch3.CloudEvents(project_id)
 def on_set(event):
     if event.var != "server":
         return
-    worldrec = scratch3.get_var(project_id, "世界記録")
+    worldrec = int(scratch3.get_var(project_id, "世界記録"))
 
     print(f"{event.user}がタイム{event.value}を記録!")
     if int(event.value) < worldrec:
@@ -26,6 +26,7 @@ def on_set(event):
         conn.set_var("世界記録", worldrec)
 
 
+@events.event
 def on_ready():
     print("Server is ready!")
 
