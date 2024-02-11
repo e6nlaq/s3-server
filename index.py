@@ -2,7 +2,7 @@
 import scratchattach as scratch3
 import os
 
-project_id = "プロジェクトのID"
+project_id = "プロジェクトのIDiiiii"
 
 # ログインや接続
 session = scratch3.login(os.environ["user"], os.environ["pass"])
