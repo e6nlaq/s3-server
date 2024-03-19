@@ -4,11 +4,7 @@ on:
   push:
     branches: [main]
   # 本番環境になったら外す
-  schedule:
-    - cron: "0 22 * * *"
-    - cron: "0 1 * * *"
-    - cron: "0 4 * * *"
-    - cron: "0 6 * * *"
+ 
 
 jobs:
   build:
